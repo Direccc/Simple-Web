@@ -120,41 +120,41 @@
 
 /* toast */
 .toast {
-    position: fixed;
-    top: -100px; /* Hidden initially above the viewport */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
+    opacity: 0; /* Initially hidden with opacity */
+    visibility: hidden; /* Keeps the element in the flow, but invisible */
+    color: #000;
+    line-height: 1.5;
+    margin-bottom: 1em;
+    padding: 1.25em;
+    position: absolute;
+    right: 0;
+    top: 1em;
+    width: 300px;
+    background-color: #99004d;
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: top 0.5s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.toast[aria-hidden="false"] {
-    top: 20px; /* Slide into view */
+.toast.on {
+    opacity: 1; /* Make it visible */
+    visibility: visible; /* Allow it to be visible */
 }
-  
-  .toast.on {
-    transform: translateX(-365px);
-  }
-  
-  .close {
+
+.close {
     cursor: pointer;
     float: right;
     font-size: 1.25rem;
     line-height: 1;
     margin-left: 1em;
     opacity: .8;
-  }
-  
-  .jam {
-    background-color: #99004d;
-    color: #fff;
-  }
-  
-  
+}
+
+.jam {
+  background-color: #99004d;
+  color: #fff;
+}
+
+
 
   @media screen and (min-width: 480px) {
   
