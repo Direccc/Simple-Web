@@ -3,12 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 <body>
-    <button onclick="window.location.href='Register.html';">Register</button>
+    <div class="fixed-nav-bar">
+        <div class="logo"><img src="/images/Logo.png" alt=""></div>
+        <input type="checkbox" id="menuButton" />
+        <label for="menuButton" class="menu-button-label">
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+            <div class="white-bar"></div>
+        </label>
+    </div>
+    <div class="the-bass">
+        <div class="rela-block drop-down-container">
+            <div class="drop-down-item"><a href="Register.html"><i class="fa-solid fa-user"></i>Register Now</a></div>
+        </div>
+        <div class="rela-block drop-down-container">
+            <div class="drop-down-item"><a href="#records"><i class="fa-solid fa-window-maximize"></i>View Records</a></div>
+        </div>
+        <div class="rela-block drop-down-container">
+            <div class="drop-down-item"><a href="#about"><i class="fa-solid fa-plane-departure"></i>Services</a></div>
+        </div>
+        <div class="rela-block drop-down-container">
+            <div class="drop-down-item"><a href="#contact"><i class="fa-solid fa-phone"></i>Contact Us</a></div> <!-- New Option -->
+        </div>
+        <div class="rela-block drop-down-container">
+            <div class="drop-down-item"><a href="#services"><i class="fa-brands fa-blogger-b"></i>Blog</a></div> <!-- New Option -->
+        </div>
+        <div class="rela-block drop-down-container">
+            <div class="drop-down-item"><a href="#blog"><i class="fa-solid fa-code"></i>About Us</a></div> <!-- New Option -->
+        </div>
+    </div>
+    
 
-    <h1>BABI BAHOOOOOOOOOOOOOOOOOOOOOOO!</h1>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="index.js"></script>
 
 </body>
 </html>
