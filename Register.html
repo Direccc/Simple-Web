@@ -4,43 +4,41 @@
     <title>Sign Up Form</title>
     <link rel="stylesheet" href="Register.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="Register.css">
 </head>
 <body>
 
-    <form id="signupForm" action="your-server-endpoint" method="post">
+    <form id="signupForm" action="Register.php" method="POST">
   
     <h1>Sign Up</h1>
     
     <fieldset>
-      
       <label for="mail">Email:</label>
-      <input type="email" id="mail" name="user_email">
+      <input type="email" id="mail" name="user_email" required>
       
       <label for="password">Password:</label>
-      <input type="password" id="password" name="user_password">
+      <input type="password" id="password" name="user_password" required>
       
         <div class="last">
             <label>Age:</label>
-            <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under 13</label><br>
-            <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">13 or older</label>
+            <input type="radio" id="under_13" value="under_13" name="user_age" required><label for="under_13" class="light">Under 13</label><br>
+            <input type="radio" id="over_13" value="over_13" name="user_age" required><label for="over_13" class="light">13 or older</label>
         </div>
     </fieldset>
     
     <fieldset>
     <label for="job">Job Role:</label>
-    <select id="job" name="user_job">
+    <select id="job" name="user_job" required>
       <optgroup label="Web">
         <option value="frontend_developer">Front-End Developer</option>
-        <option value="php_developor">PHP Developer</option>
+        <option value="php_developer">PHP Developer</option>
         <option value="python_developer">Python Developer</option>
-        <option value="rails_developer"> Rails Developer</option>
+        <option value="rails_developer">Rails Developer</option>
         <option value="web_designer">Web Designer</option>
-        <option value="WordPress_developer">WordPress Developer</option>
+        <option value="wordpress_developer">WordPress Developer</option>
       </optgroup>
       <optgroup label="Mobile">
-        <option value="Android_developer">Androild Developer</option>
-        <option value="iOS_developer">iOS Developer</option>
+        <option value="android_developer">Android Developer</option>
+        <option value="ios_developer">iOS Developer</option>
         <option value="mobile_designer">Mobile Designer</option>
       </optgroup>
       <optgroup label="Business">
@@ -55,19 +53,21 @@
     
     <div class="lastdiv">
       <label>Interests:</label>
-      <input type="checkbox" id="development" value="interest_development" name="user_interest"><label class="light" for="development">Development</label><br>
-        <input type="checkbox" id="design" value="interest_design" name="user_interest"><label class="light" for="design">Design</label><br>
-      <input type="checkbox" id="business" value="interest_business" name="user_interest"><label class="light" for="business">Business</label>
+      <input type="checkbox" id="development" value="interest_development" name="user_interest[]"><label class="light" for="development">Finance</label><br>
+      <input type="checkbox" id="design" value="interest_design" name="user_interest[]"><label class="light" for="design">Coding</label><br>
+      <input type="checkbox" id="business" value="interest_business" name="user_interest[]"><label class="light" for="business">Law</label>
     </div>
     </fieldset>
+    
     <button type="submit">Sign Up</button>
-  </form>
   
-  <div class="toast jam" aria-hidden="true">
-    <span class="close" aria-role="button" tabindex="0">&times;</span>
-    Registered Successfully! 
-  </div>
+    </form>
 
-  <script src="Register.js"></script>
+    <div class="toast jam" id="toastMessage" aria-hidden="true">
+        <span class="close" aria-role="button" tabindex="0">&times;</span>
+        <!-- The toast message will be updated dynamically -->
+    </div>
+
+    <script src="Register.js"></script>
 </body>
 </html>

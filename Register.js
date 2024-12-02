@@ -1,55 +1,81 @@
-document.addEventListener('DOMContentLoaded', function () {
-    // Get the form element
-    const form = document.getElementById('signupForm');
-    
-    // Get the toast element
-    const toast = document.querySelector('.toast.jam');
-    const closeBtn = document.querySelector('.close');
-    
-    // Attach a submit event listener to the form
-    form.addEventListener('submit', function(event) {
-        // Prevent the default form submission (reloading)
-        event.preventDefault();
-        
-        // Get all input fields
-        const email = document.getElementById('mail').value;
-        const password = document.getElementById('password').value;
-        const age = document.querySelector('input[name="user_age"]:checked');
-        const job = document.getElementById('job').value;
-        
-        // Validate if required fields are filled
-        if (!email || !password || !age || !job) {
-            // Show a toast message if validation fails
-            toast.textContent = "Please fill in all fields.";
-            toast.setAttribute('aria-hidden', 'false');
-            toast.classList.add('on');
+// Grab the form and toast elements
+const form = document.getElementById("signupForm");
+const toast = document.getElementById("toastMessage");
 
-            setTimeout(function () {
-                toast.classList.remove('on');
-                toast.setAttribute('aria-hidden', 'true');
-            }, 3000);
+// Add event listener for form submission
+form.addEventListener('submit', function(event) {
+    event.preventDefault();  // Prevent the form from submitting normally
+    
+    // Collect form values
+    const email = form.user_email.value.trim();
+    const password = form.user_password.value.trim();
+    const age = form.user_age.value;
+    const job = form.user_job.value;
+    const interests = form.user_interest ? form.user_interest : [];
 
-            return;
-        }
-        
-        // If everything is valid, show the success toast
-        toast.textContent = "Registered Successfully!";
+    // Validate form fields
+    if (!email || !password || !age || !job) {
+        // Show error toast for missing fields
+        toast.textContent = "Please fill in all fields.";
         toast.setAttribute('aria-hidden', 'false');
         toast.classList.add('on');
         
-        // Optionally reset the form
-        form.reset();
-        
-        // Close the toast after 3 seconds
         setTimeout(function () {
             toast.classList.remove('on');
             toast.setAttribute('aria-hidden', 'true');
         }, 3000);
-    });
-    
-    // Close the toast when the close button is clicked
-    closeBtn.addEventListener('click', function () {
-        toast.classList.remove('on');
-        toast.setAttribute('aria-hidden', 'true');
+        return;  // Stop form submission if validation fails
+    }
+
+    // Optional: Add password validation here (length, special characters, etc.)
+    if (password.length < 6) {
+        toast.textContent = "Password must be at least 6 characters.";
+        toast.setAttribute('aria-hidden', 'false');
+        toast.classList.add('on');
+        
+        setTimeout(function () {
+            toast.classList.remove('on');
+            toast.setAttribute('aria-hidden', 'true');
+        }, 3000);
+        return;
+    }
+
+    // If validation passes, prepare form data and send via AJAX
+    const formData = new FormData(form);
+
+    fetch('Process.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        // Check the response from the server
+        if (data.trim() === "success") {
+            // Show success toast if registration is successful
+            toast.textContent = "Registered Successfully!";
+            toast.setAttribute('aria-hidden', 'false');
+            toast.classList.add('on');
+        } else {
+            // Show error toast if registration fails
+            toast.textContent = "Registration Failed. Please try again.";
+            toast.setAttribute('aria-hidden', 'false');
+            toast.classList.add('on');
+        }
+
+        setTimeout(function () {
+            toast.classList.remove('on');
+            toast.setAttribute('aria-hidden', 'true');
+        }, 3000);
+    })
+    .catch(error => {
+        // Show error toast if there's an issue with the AJAX request
+        toast.textContent = "Error registering. Please try again later.";
+        toast.setAttribute('aria-hidden', 'false');
+        toast.classList.add('on');
+        
+        setTimeout(function () {
+            toast.classList.remove('on');
+            toast.setAttribute('aria-hidden', 'true');
+        }, 3000);
     });
 });
