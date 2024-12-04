@@ -43,7 +43,7 @@ form.addEventListener('submit', function(event) {
     // If validation passes, prepare form data and send via AJAX
     const formData = new FormData(form);
 
-    fetch('Process.php', {
+    fetch('/php/Process.php', {
         method: 'POST',
         body: formData
     })
