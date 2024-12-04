@@ -1,17 +1,14 @@
-/* style.css */
-
 /* Basic styling for the body and container */
 body {
-    font-family: 'Poppins', sans-serif;  /* Ensure Poppins is used universally */
+    font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    overflow-x: auto;
     max-width: 100%;
-    margin-top: 100px;
+    margin-top: 120px;
     margin-bottom: 50px;
     margin-left: 50px;
     margin-right: 50px;
@@ -19,6 +16,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent overflow of content */
 }
 
 h1 {
@@ -29,17 +27,20 @@ h1 {
 /* Styling the table */
 table {
     width: 100%;
-    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 20px 0;
+    table-layout: fixed;  /* Ensures that columns are evenly sized */
 }
 
 table, th, td {
     border: 1px solid #ddd;
+    font-size: 14px;
 }
 
 th, td {
     padding: 8px;
     text-align: left;
-    word-wrap: break-word;
+    word-wrap: break-word; /* Ensure long words break into the next line */
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -47,15 +48,13 @@ th, td {
 th {
     background-color: #4CAF50;
     color: white;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 td {
     background-color: #f9f9f9;
-    max-width: 250px;
-}
-
-td:hover {
-    background-color: #f1f1f1;
+    font-size: 13px;
 }
 
 /* Navbar styling */
@@ -78,6 +77,7 @@ nav a:hover {
     color: black;
 }
 
+/* Fixed navbar */
 .fixed-nav-bar {
     position: fixed;
     top: 0;
@@ -89,9 +89,7 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
     z-index: 100;
-    backface-visibility: hidden;
-    transition: 0.35s ease;
-    z-index: 1000;  /* Ensure the navbar is above other content */
+    transition: all 0.3s ease;
 }
 
 .fixed-nav-bar .logo {
@@ -106,198 +104,174 @@ nav a:hover {
     cursor: pointer;
 }
 
-.fixed-nav-bar .logo span {
-    color: #E78533;
-    font-weight: 600;
-}
-
 .fixed-nav-bar.scrolled {
     min-height: 60px;
     background-color: #FDFDFD;
     box-shadow: 0 0 30px 3px rgba(0, 0, 0, 0.6);
 }
 
-.fixed-nav-bar.scrolled .logo {
-    color: black;
+.user-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.fixed-nav-bar.scrolled .menu-button-label .white-bar {
-    background-color: black;
-}
-
-.drop-down-container {
-    height: 15%;
-    width: 90%;
-    left: 160%;
-    margin-top: 5px;
-    transform: translateX(-50%);
-    transition: 0.3s ease;
-}
-
-.drop-down-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 8px;
-    bottom: 0;
-    background-color: #ffcdb2;
-}
-
-.drop-down-item:before {
-    content: "";
-    position: absolute;
-    right: -8px;
-    height: 100%;
-    width: 8px;
-    transition: 0.25s ease;
-    background: linear-gradient(to left, #6d6875 50%, #ffcdb2 50%);
-    background-size: 200% 100%;
-    background-position: left;
-}
-
-.drop-down-item:hover::before {
-    background-position: right;
-}
-
-.the-bass {
-    position: fixed;
-    height: 0px;
-    width: 360px;
-    right: 0;
-    top: 100px;
-    background-color: #b5838d;
-    transition: 0.35s ease, height 0.35s 0.3s ease;
-    z-index: 90;
-}
-
-.the-bass.scrolled {
-    top: 60px;
-}
-
-.the-bass.dropped {
-    height: 40vh;
-    padding: 5px 0;
-    transition: 0.35s ease;
-}
-
-.the-bass.dropped .drop-down-container {
-    left: 50%;
-}
-
-.menu-button-label {
-    position: absolute;
-    height: 48px;
-    width: 48px;
-    top: 50%;
-    right: 25px;
-    transform: translateY(-50%);
-    transition: 0.4s ease;
-}
-
-.menu-button-label .white-bar {
-    position: absolute;
-    height: 4px;
-    width: 66%;
-    background-color: black;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: 0.4s ease, width 0.3s ease;
-}
-
-.menu-button-label .white-bar:nth-child(1) {
-    top: 24%;
-}
-
-.menu-button-label .white-bar:nth-child(2),
-.menu-button-label .white-bar:nth-child(3) {
-    top: 47%;
-}
-
-.menu-button-label .white-bar:nth-child(4) {
-    top: 71%;
-}
-
-#menuButton {
-    display: none;
-}
-
-#menuButton:checked + .menu-button-label .white-bar:nth-child(1),
-#menuButton:checked + .menu-button-label .white-bar:nth-child(4) {
-    width: 0%;
-}
-
-#menuButton:checked + .menu-button-label .white-bar:nth-child(2) {
-    transform: translateX(-50%) rotate(45deg);
-}
-
-#menuButton:checked + .menu-button-label .white-bar:nth-child(3) {
-    transform: translateX(-50%) rotate(-45deg);
-}
-
-.rela-block {
-    display: block;
-    position: relative;
-    overflow: hidden;
-}
-
-.cover-before::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.logo img {
-    width: 380px; /* Set the desired width */
-    height: auto; /* Maintain the aspect ratio */
-}
-
-/* Style for the dropdown items */
-.drop-down-item a {
-    text-decoration: none;
-    color: #112A46; /* Text color */
-    padding: 12px 10px;
-    font-size: 16px;
-    font-weight: 500;
+.user-item {
     display: flex;
-    align-items: center;
-    transition: background-color 0.3s ease;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: -0.3px;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
-/* Font family suggestion */
-body {
-    font-family: 'Poppins', sans-serif;
-}
-
-/* Style for icons within the links */
-.drop-down-item a i {
-    width: 20px;
-    height: 20px;
-    color: #112A46;
-    transition: color 0.3s ease;
+.label {
+    font-weight: bold;
     margin-right: 10px;
+    color: #333;
 }
 
-/* Responsive Design */
+.data {
+    color: #555;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.interest-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.interest-item {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    margin: 2px;
+    max-width: 130px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 @media screen and (max-width: 800px) {
     .fixed-nav-bar .logo {
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
-    .deer-section {
-        min-height: 660px;
-        background-position: right bottom;
-        background-size: 300px 425px;
+    table, th, td {
+        font-size: 12px;  /* Reduce font size for smaller screens */
     }
 }
 
-@media screen and (max-width: 500px) {
-    .social-buttons-container {
-        max-width: 200px;
+/* Mobile and Tablet View (max-width: 767px) */
+@media screen and (max-width: 767px) {
+    
+    .user-list-header {
+        display: block;
+        margin-bottom: 10px; /* Add space below the header */
+        text-align: center; /* Center the header text */
+        font-weight: bold; /* Make the header bold */
+    }
+
+    .user-list-header span {
+        display: inline-block;
+        margin-right: 5px;  /* Add some space between 'Users' and 'List' */
+    }
+
+    /* Hide table on mobile */
+    table {
+        display: none; /* Hide the table */
+    }
+
+    /* Show the user card only */
+    .user-card {
+        display: block;
+        padding: 15px;
+    }
+
+    .user-item {
+        word-wrap: break-word; /* Prevent overflow within user card items */
+        word-break: break-word;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .label {
+        font-weight: bold;
+        margin-right: 10px;
+        display: inline-block;
+        width: 100px; /* Add fixed width to labels for consistency */
+    }
+
+    .data {
+        color: #555;
+        word-wrap: break-word;
+        word-break: break-word;
+        display: inline-block;
+        max-width: 100%; /* Allow data to wrap properly */
+        margin-bottom: 8px; /* Add spacing between each data item */
+    }
+
+    /* Fix Interests section */
+    .interest-list {
+        display: block; /* Stack interests vertically */
+        margin-top: 10px; /* Add space above the interests */
+    }
+
+    .interest-item {
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: 4px;
+        margin: 2px;
+        max-width: 100%;  /* Ensure interests stay within container */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Make sure the data aligns properly with the label */
+    .user-item {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+    }
+
+    .label, .data {
+        width: 100%; /* Ensure both label and data take full width on small screens */
+    }
+
+    .label {
+        font-weight: bold;
+        margin-bottom: 4px; /* Add space between label and data */
+    }
+}
+
+/* Desktop View (min-width: 768px) */
+@media (min-width: 768px) {
+    .user-list-header {
+        text-align: center; /* Center the header text */
+        font-weight: bold; /* Make the header bold */
+        margin-bottom: 20px; /* Add space below the header */
+    }
+
+    .user-list-header span {
+        display: inline-block;
+        margin-right: 5px; /* Add some space between 'Users' and 'List' */
+    }
+
+    /* Show table on desktop */
+    table {
+        display: table;
+    }
+
+    /* Hide user card on desktop */
+    .user-card {
+        display: none;
     }
 }

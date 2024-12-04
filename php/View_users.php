@@ -71,10 +71,15 @@ try {
 
     <!-- Content for Users List -->
     <div class="container">
-        <h1>Users List</h1>
+    <div class="user-list-header">
+        <span>Users</span>
+        <span>List</span>
+    </div>
 
         <?php
         if (!empty($users)) {
+            // Desktop table view
+            echo "<div class='desktop-view'>";
             echo "<table border='1' cellpadding='5' cellspacing='0'>";
             echo "<tr><th>ID</th><th>Email</th><th>Password</th><th>Age</th><th>Job</th><th>Interests</th><th>Created At</th></tr>";
             
@@ -86,11 +91,43 @@ try {
                 echo "<td>" . htmlspecialchars($user['user_password']) . "</td>";
                 echo "<td>" . htmlspecialchars($user['user_age']) . "</td>";
                 echo "<td>" . htmlspecialchars($user['user_job']) . "</td>";
-                echo "<td>" . htmlspecialchars($user['user_interest']) . "</td>";
+                // Decode the interests JSON array and display each one
+                $interests = json_decode($user['user_interest'], true);
+                echo "<td>" . (is_array($interests) ? implode(", ", $interests) : $user['user_interest']) . "</td>";
                 echo "<td>" . htmlspecialchars($user['created_at']) . "</td>";
                 echo "</tr>";
             }
             echo "</table>";
+            echo "</div>";
+
+            // Mobile card view
+            echo "<div class='mobile-view'>";
+            foreach ($users as $user) {
+                echo "<div class='user-card'>";
+                echo "<div class='user-item'><span class='label'>ID:</span><span class='data'>" . htmlspecialchars($user['id']) . "</span></div>";
+                echo "<div class='user-item'><span class='label'>Email:</span><span class='data'>" . htmlspecialchars($user['user_email']) . "</span></div>";
+                echo "<div class='user-item'><span class='label'>Password:</span><span class='data'>" . htmlspecialchars($user['user_password']) . "</span></div>";
+                echo "<div class='user-item'><span class='label'>Age:</span><span class='data'>" . htmlspecialchars($user['user_age']) . "</span></div>";
+                echo "<div class='user-item'><span class='label'>Job:</span><span class='data'>" . htmlspecialchars($user['user_job']) . "</span></div>";
+                
+                // Decode and display the interests in the mobile view
+                $interests = json_decode($user['user_interest'], true);
+                echo "<div class='user-item'><span class='label'>Interests:</span><span class='data'>";
+                if (is_array($interests)) {
+                    // Display each interest item as separate entries
+                    foreach ($interests as $interest) {
+                        echo "<span class='interest-item'>" . htmlspecialchars($interest) . "</span> ";
+                    }
+                } else {
+                    echo htmlspecialchars($user['user_interest']);
+                }
+                echo "</span></div>";
+                
+                echo "<div class='user-item'><span class='label'>Created At:</span><span class='data'>" . htmlspecialchars($user['created_at']) . "</span></div>";
+                echo "</div>";
+            }
+            echo "</div>";
+
         } else {
             echo "<p>No users found.</p>";
         }

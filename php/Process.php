@@ -25,7 +25,7 @@ try {
         
         // Bind parameters and execute the query
         $stmt->bindParam(':user_email', $email);
-        $stmt->bindParam(':user_password', password_hash($password, PASSWORD_DEFAULT)); // Hash the password
+        $stmt->bindParam(':user_password', $password);
         $stmt->bindParam(':user_age', $age);
         $stmt->bindParam(':user_job', $job);
         $stmt->bindParam(':user_interest', $interests);
