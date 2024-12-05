@@ -3,13 +3,12 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Use Poppins font for body */
-    background-color: #ffcdb2;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(120deg, #ffcc99 0%, #fff4e1 100%); /* Light peachy pink gradient */
     font-size: 22px;
     line-height: 28px;
-    letter-spacing: 4px;
-    font-family: "Raleway";
     font-weight: 400;
+    color: #333333; /* Darker text for readability */
 }
 
 .fixed-nav-bar {
@@ -20,7 +19,7 @@ body {
     min-height: 100px;
     padding: 0 25px;
     box-sizing: border-box;
-    background-color: rgba(255,255,255,0.02);
+    background-color: rgba(255, 255, 255, 0.02);
     box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
     z-index: 100;
     backface-visibility: hidden;
@@ -40,13 +39,12 @@ body {
 }
 
 .fixed-nav-bar .logo span {
-    color: #E78533;
     font-weight: 600;
 }
 
 .fixed-nav-bar.scrolled {
     min-height: 60px;
-    background-color: #FDFDFD;
+    background-color: #ffcdb2; /* Soft peachy pink */
     box-shadow: 0 0 30px 3px rgba(0, 0, 0, 0.6);
 }
 
@@ -63,6 +61,7 @@ body {
     width: 90%;
     left: 160%;
     margin-top: 5px;
+    background-color: #ffffff;
     transform: translateX(-50%);
     transition: 0.3s ease;
 }
@@ -73,7 +72,8 @@ body {
     left: 0;
     right: 8px;
     bottom: 0;
-    background-color: #ffcdb2;
+    background-color: #ffffff;
+    color: #384047; /* Soft gray for text */
 }
 
 .drop-down-item:before {
@@ -83,7 +83,7 @@ body {
     height: 100%;
     width: 8px;
     transition: 0.25s ease;
-    background: linear-gradient(to left, #6d6875 50%, #ffcdb2 50%);
+    background: linear-gradient(to left, #ffc40c 50%, #ffffff 50%); /* Light yellow gradient */
     background-size: 200% 100%;
     background-position: left;
 }
@@ -98,7 +98,7 @@ body {
     width: 360px;
     right: 0;
     top: 100px;
-    background-color: #b5838d;
+    background-color: #ff7f50; /* Soft yellow */
     transition: 0.35s ease, height 0.35s 0.3s ease;
     z-index: 90;
 }
@@ -155,7 +155,7 @@ body {
     position: absolute;
     height: 4px;
     width: 66%;
-    background-color: black;
+    background-color: #ff6600; /* Deep red color */
     left: 50%;
     transform: translateX(-50%);
     transition: 0.4s ease, width 0.3s ease;
@@ -218,22 +218,16 @@ body {
 
 /* Style for the dropdown items */
 .drop-down-item a {
+    height: 100%;
+    font-weight: bold;
     text-decoration: none; /* Remove underline */
-    color: #112A46; /* Text color */
-    padding: 12px 10px; /* Padding around text */
+    color: #384047; /* Soft gray for text */
+    padding: 0px 10px; /* Padding around text */
     font-size: 16px; /* Font size */
-    font-weight: 500; /* Medium font weight */
     display: flex; /* Flexbox for icon and text alignment */
     align-items: center; /* Center vertically */
     transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
     letter-spacing: -0.3px; /* Reduce space between characters */
-}
-
-
-/* Font family suggestion */
-body {
-    font-family: 'Poppins', sans-serif; /* Use Poppins font for body */
 }
 
 /* Style for icons within the links */
@@ -242,30 +236,7 @@ body {
 .drop-down-item a i {
     width: 20px; /* Set a fixed width for the icons */
     height: 20px; /* Set a fixed height for the icons */
-    color: #112A46; /* Icon color */
+    color: #ff6600; /* Orange icon color */
     transition: color 0.3s ease; /* Smooth transition for icon color */
     margin-right: 10px; /* Adjust spacing between the icon and text */
-    
-}
-
-
-
-
-@media screen and (max-width: 800px) {
-    .fixed-nav-bar .logo {
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .deer-section {
-        min-height: 660px;
-        background-position: right bottom;
-        background-size: 300px 425px;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .social-buttons-container {
-        max-width: 200px;
-    }
 }

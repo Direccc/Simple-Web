@@ -1,165 +1,264 @@
+/* Universal styling */
 *, *:before, *:after {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Nunito', sans-serif;
-    color: #384047;
-  }
-  
-  form {
-    max-width: 300px;
-    margin: 10px auto;
-    padding: 10px 20px;
-    background: #f4f7f8;
-    border-radius: 8px;
-  }
-  
-  h1 {
-    margin: 0 0 10px 0;
-    text-align: center;
-  }
-  
-  input[type="text"],
-  input[type="password"],
-  input[type="date"],
-  input[type="datetime"],
-  input[type="email"],
-  input[type="number"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="time"],
-  input[type="url"],
-  textarea,
-  select {
-    background: rgba(255,255,255,0.1);
-    border: none;
-    font-size: 16px;
-    height: auto;
-    margin: 0;
-    outline: 0;
-    padding: 15px;
-    width: 100%;
-    background-color: #e8eeef;
-    color: #8a97a0;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    margin-bottom: 30px;
-  }
-  
-  input[type="radio"],
-  input[type="checkbox"] {
-    margin: 0 4px 8px 0;
-  }
-  
-  select {
-    padding: 6px;
-    height: 32px;
-    border-radius: 2px;
-  }
-  
+  box-sizing: border-box;
+}
 
-  
-  button {
-    padding: 19px 39px 18px 39px;
-    color: #FFF;
-    background-color: #4bc970;
-    font-size: 18px;
-    text-align: center;
-    font-style: normal;
-    border-radius: 5px;
-    width: 100%;
-    border: 1px solid #3ac162;
-    border-width: 1px 1px 3px;
-    box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-    margin-bottom: 10px;
-  }
-  
-  fieldset {
-    border: none;
-  }
+/* Body styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #555555; /* Softer dark gray for text */
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #ffcc99 0%, #fff4e1 100%); /* Light peachy pink gradient */
+}
 
-  .last{
-    margin-bottom: 10px;
-  }
+/* Fieldset */
+fieldset {
+  border: none; /* Removes the default border */
+  margin: 0;
+  padding: 0;
+  padding-bottom: 20px; /* Add space between fieldsets for clarity */
+}
 
-  .lastdiv{
-    margin-bottom: 20px;
-  }
-  
-  legend {
-    font-size: 1.4em;
-    margin-bottom: 10px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  label.light {
-    font-weight: 300;
-    display: inline;
-  }
-  
-  .number {
-    background-color: #5fcf80;
-    color: #fff;
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-    font-size: 0.8em;
-    margin-right: 4px;
-    line-height: 30px;
-    text-align: center;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.2);
-    border-radius: 100%;
-  }
-  
-
-/* toast */
-.toast {
-    opacity: 0; /* Initially hidden with opacity */
-    visibility: hidden; /* Keeps the element in the flow, but invisible */
-    color: #000;
-    line-height: 1.5;
-    margin-bottom: 1em;
-    padding: 1.25em;
-    position: absolute;
+/* Fixed navigation bar */
+.fixed-nav-bar {
+  position: fixed;
+    top: 0;
+    left: 0;
     right: 0;
-    top: 1em;
-    width: 300px;
-    background-color: #99004d;
-    color: #fff;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    min-height: 100px;
+    padding: 0 25px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 0 15px 2px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    backface-visibility: hidden;
+    transition: 0.35s ease;
 }
 
-.toast.on {
-    opacity: 1; /* Make it visible */
-    visibility: visible; /* Allow it to be visible */
+/* Main container styling */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 120px; /* Adjust for fixed navbar */
+  padding: 20px;
+  gap: 50px;
+  width: 90%;
+  margin: 120px auto;
+  flex-wrap: wrap;
 }
 
-.close {
-    cursor: pointer;
-    float: right;
-    font-size: 1.25rem;
-    line-height: 1;
-    margin-left: 1em;
-    opacity: .8;
+/* Image container styling */
+.image-container {
+  flex: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 100%;
 }
 
-.jam {
-  background-color: #99004d;
-  color: #fff;
+.image-container img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  transition: transform 0.3s ease-in-out;
 }
 
+.image-container img:hover {
+  transform: scale(1.05);
+}
 
+/* Form container styling */
+.form-container {
+  flex: 1.5;
+  max-width: 480px;
+  background: #ffffff; /* White background for form */
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  animation: slideIn 0.8s ease-in-out;
+}
 
-  @media screen and (min-width: 480px) {
-  
-    form {
-      max-width: 480px;
-    }
-  
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form h1 {
+  color: #ffad5c; /* Matching the navbar color */
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Input and select fields */
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: #f9f9f9; /* Light gray background for inputs */
+  border: 2px solid #ffad5c; /* Soft peachy orange border */
+  border-radius: 8px;
+  color: #555555; /* Softer dark gray for text */
+  font-size: 16px;
+  font-weight: bold;
+  transition: border-color 0.3s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #ffad5c; /* Focus border color */
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 173, 92, 0.4); /* Soft glow effect */
+}
+
+/* Checkboxes and labels */
+label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #ffad5c; /* Matching label color */
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+label.light {
+  font-weight: normal;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 15px;
+  background: #ffad5c; /* Matching button with navbar color */
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover {
+  background: #ff8a29; /* Slightly darker shade for hover effect */
+  transform: translateY(-3px);
+}
+
+/* Toast container with animations */
+.toast {
+  position: fixed;
+  top: 120px; /* Positioned below the nav bar */
+  right: 0; /* Positioned to the right side of the screen */
+  background: #ffad5c;
+  color: #ffffff;
+  padding: 15px;
+  opacity: 0;
+  visibility: hidden;
+  animation: slideIn 0.5s ease-out forwards; /* Slide-in animation */
+}
+
+/* When the toast is shown */
+.toast.show {
+  opacity: 1;
+  visibility: visible;
+  animation: slideIn 0.5s ease-out forwards; /* Slide-in animation */
+}
+
+/* Slide-in animation (from the right) */
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateX(100%); /* Start off-screen from the right */
   }
+  to {
+      opacity: 1;
+      transform: translateX(0); /* End at the normal position */
+  }
+}
+
+/* Slide-out animation (to the right) */
+@keyframes slideOut {
+  from {
+      opacity: 1;
+      transform: translateX(0); /* Start at the normal position */
+  }
+  to {
+      opacity: 0;
+      transform: translateX(100%); /* Move off-screen to the right */
+  }
+}
+
+/* Close button styling */
+.toast .close {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-container {
+    display: none;
+  }
+
+  .form-container {
+    flex: 1;
+    max-width: 90%;
+    padding: 30px;
+  }
+}
+
+/* For screens smaller than 480px (mobile devices) */
+@media (max-width: 480px) {
+  .main-container {
+    gap: 15px;
+  }
+
+  .form-container {
+    max-width: 95%;
+    padding: 20px;
+  }
+
+  form h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  select,
+  textarea,
+  button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}

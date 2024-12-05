@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    margin-top: 100px;
+    width: 100%;
+    background-color: #1E1E1E;
+    color: #ffffff;
+    padding: 2rem 0;
+}
+
+.brand-name {
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.social-icon {
+    color: #ffffff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .brand-name {
+        font-size: 2rem;
+    }
+
+    .social-icons {
+        gap: 1rem;
+    }
+
+    .social-icon {
+        font-size: 1.25rem;
+    }
+}

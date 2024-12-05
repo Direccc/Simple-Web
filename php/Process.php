@@ -16,7 +16,20 @@ try {
         $password = $_POST['user_password'];
         $age = $_POST['user_age'];
         $job = $_POST['user_job'];
-        $interests = json_encode($_POST['user_interest']);  // Store interests as JSON
+        
+        if (isset($_POST['user_interest'])) {
+            $interests = $_POST['user_interest'];  // Get the array of interests
+            $interests_json = json_encode($interests);  // Convert the array into a JSON string
+        } else {
+            $interests_json = null;  // If no interests are selected
+        }
+        // Debugging: Echo the values to check if data is being received
+        // Remove echo after testing
+        error_log("Email: $email");
+        error_log("Password: $password");
+        error_log("Age: $age");
+        error_log("Job: $job");
+        error_log("Interests: $interests");
 
         // Prepare the SQL query to insert the data into the users table
         $query = "INSERT INTO users (user_email, user_password, user_age, user_job, user_interest) 
@@ -28,19 +41,18 @@ try {
         $stmt->bindParam(':user_password', $password);
         $stmt->bindParam(':user_age', $age);
         $stmt->bindParam(':user_job', $job);
-        $stmt->bindParam(':user_interest', $interests);
+        $stmt->bindParam(':user_interest', $interests_json);  // Bind the JSON-encoded interests
         $stmt->execute();
 
-        // Return success response back to the frontend (JavaScript will handle the response)
-        echo "success"; // Send success message back
+        // If the insertion is successful, return "success"
+        echo "success"; 
     } else {
-        // Handle any other method (if necessary)
-        echo "Invalid request";
+        echo "Invalid request method";  // This message helps identify the issue during debugging
     }
 
 } catch (PDOException $e) {
-    // Log error, but do not echo any message back
-    error_log("Connection failed: " . $e->getMessage());
-    echo "An error occurred, please try again later.";
+    // Log detailed error for debugging
+    error_log("Database error: " . $e->getMessage());
+    echo "An error occurred. Please try again later.";  // Display a generic error message to the user
 }
 ?>

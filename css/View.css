@@ -1,9 +1,10 @@
 /* Basic styling for the body and container */
 body {
-    font-family: 'Poppins', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    letter-spacing: 0.5px; /* Adjust letter spacing to make text closer */
+    color: #384047; /* Soft gray for regular text */
 }
 
 .container {
@@ -30,6 +31,9 @@ table {
     border-collapse: collapse;
     margin: 20px 0;
     table-layout: fixed;  /* Ensures that columns are evenly sized */
+    background-color: #fafafa; /* Soft off-white for the table */
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 table, th, td {
@@ -38,7 +42,7 @@ table, th, td {
 }
 
 th, td {
-    padding: 8px;
+    padding: 12px 15px;
     text-align: left;
     word-wrap: break-word; /* Ensure long words break into the next line */
     overflow: hidden;
@@ -46,15 +50,26 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50;
+    background-color: #ffcc99; /* Peachy tone for header */
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
+    text-transform: uppercase; /* Make header text uppercase */
 }
 
 td {
     background-color: #f9f9f9;
     font-size: 13px;
+    color: #333;
+}
+
+tr:nth-child(even) td {
+    background-color: #f2f2f2; /* Stripe effect for rows */
+}
+
+/* Hover effect for rows */
+tr:hover {
+    background-color: #f1f1f1;
 }
 
 /* Navbar styling */
@@ -106,13 +121,13 @@ nav a:hover {
 
 .fixed-nav-bar.scrolled {
     min-height: 60px;
-    background-color: #FDFDFD;
+    background-color: #ffcdb2;
     box-shadow: 0 0 30px 3px rgba(0, 0, 0, 0.6);
 }
 
 .user-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    background-color: #ffffff; /* White background for the card */
+    border: 1px solid #ddd; /* Light gray border */
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 8px;
@@ -130,7 +145,7 @@ nav a:hover {
 .label {
     font-weight: bold;
     margin-right: 10px;
-    color: #333;
+    color: #ff7f50; /* Soft yellow to highlight the labels */
 }
 
 .data {
@@ -156,6 +171,11 @@ nav a:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.user-card:hover {
+    background-color: #f9f9f9; /* Slightly darker when hovered */
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover effect */
 }
 
 @media screen and (max-width: 800px) {
@@ -193,6 +213,10 @@ nav a:hover {
     .user-card {
         display: block;
         padding: 15px;
+        background-color: #fff;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .user-item {
@@ -203,6 +227,7 @@ nav a:hover {
     }
 
     .label {
+        color: #333;
         font-weight: bold;
         margin-right: 10px;
         display: inline-block;
@@ -233,6 +258,7 @@ nav a:hover {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        background-color: #f8e1d4; /* Match the interests color */
     }
 
     /* Make sure the data aligns properly with the label */
