@@ -163,6 +163,16 @@ button:hover {
   transform: translateY(-3px);
 }
 
+.drop-down-item :hover{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 8px;
+  bottom: 0;
+  background-color: #ffffff;
+  color: #384047; /* Soft gray for text */
+}
+
 /* Toast container with animations */
 .toast {
   position: fixed;

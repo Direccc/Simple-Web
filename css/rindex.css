@@ -1,0 +1,262 @@
+/* General Reset and Styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;  /* Increased base font size */
+    justify-content: flex-start;  /* Align content to the top */
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;  /* Light background to make cards pop */
+    padding-top: 100px;  /* Added padding-top to prevent content from being hidden under fixed navbar */
+}
+
+.drop-down-item :hover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 8px;
+    bottom: 0;
+    background-color: #ffffff;
+    color: #384047; /* Soft gray for text */
+}
+
+.Cards {
+    width: 100%;  /* Increased to full width */
+    max-width: 1800px;  /* Increased max-width for larger cards */
+    margin-top: 0;  /* Removed the large margin-top */
+}
+
+/* Color Variables */
+.color-white { color: #fff; }
+.color-prime { color: #f39c12; } /* Gold yellow, a warm accent color */
+.color-grey { color: #e2e2e2; }
+.color-grey-dark { color: #a2a2a2; }
+.color-dark { color: #333333; } /* For body text */
+.color-soft-peach { color: #ffcdb2; } /* Soft peachy pink */
+.color-dark-blue { color: #34495e; } /* Dark blue for accents */
+
+/* Blog Card Styling */
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem auto;  /* Increased margin for spacing */
+    box-shadow: 0 5px 20px -3px rgba(0, 0, 0, 0.2);  /* Larger shadow for more depth */
+    background: #fff;
+    line-height: 1.6;  /* Increased line-height for readability */
+    font-family: sans-serif;
+    border-radius: 12px;  /* Slightly larger rounded corners for a modern look */
+    overflow: hidden;
+    z-index: 0;
+    border: 1px solid #e2e2e2;  /* Subtle border for separation */
+    width: 100%;  /* Full width within the container */
+    max-width: 1200px;  /* Increased max-width for larger cards */
+}
+
+.blog-card a {
+    color: inherit;
+}
+
+.blog-card a:hover {
+    color: #f39c12;  /* Deep gold for hover effect */
+}
+
+.blog-card:hover .photo {
+    transform: scale(1.5) rotate(3deg);  /* Larger hover effect */
+}
+
+.blog-card .meta {
+    position: relative;
+    z-index: 0;
+    height: 400px;  /* Increased height for the image */
+}
+
+.blog-card .photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s;
+    opacity: 0.85;  /* Slight opacity for background images */
+}
+
+.blog-card .details,
+.blog-card .details ul {
+    margin: auto;
+    padding: 0;
+    list-style: none;
+}
+
+.blog-card .details {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    margin: auto;
+    transition: left 0.2s;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 20px;  /* Increased padding */
+    width: 100%;
+    font-size: 1.1rem;  /* Increased font size */
+}
+
+.blog-card .details a {
+    text-decoration: dotted underline;
+}
+
+.blog-card .details ul li {
+    display: inline-block;
+}
+
+.blog-card .details .author:before {
+    font-family: FontAwesome;
+    margin-right: 20px;  /* Increased spacing for icons */
+    content: "\f007";
+}
+
+.blog-card .details .date:before {
+    font-family: FontAwesome;
+    margin-right: 20px;
+    content: "\f133";
+}
+
+.blog-card .details .tags ul:before {
+    font-family: FontAwesome;
+    content: "\f02b";
+    margin-right: 20px;
+}
+
+.blog-card .details .tags li {
+    margin-right: 10px;  /* Increased margin for clarity */
+}
+
+.blog-card .details .tags li:first-child {
+    margin-left: -4px;
+}
+
+.blog-card .description {
+    padding: 2.5rem;  /* Increased padding for more space */
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.blog-card .description h1,
+.blog-card .description h2 {
+    font-family: Poppins, sans-serif;
+}
+
+.blog-card .description h1 {
+    line-height: 1.2;
+    margin: 0;
+    font-size: 2.5rem;  /* Increased font size for main heading */
+    color: #34495e;  /* Dark blue text color for headings */
+}
+
+.blog-card .description h2 {
+    font-size: 1.4rem;  /* Increased font size for subheadings */
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #f39c12;  /* Gold yellow for subheadings */
+    margin-top: 12px;
+}
+
+.blog-card .description .read-more {
+    text-align: right;
+}
+
+.blog-card .description .read-more a {
+    color: #f39c12;  /* Gold yellow for "read more" */
+    display: inline-block;
+    position: relative;
+    font-size: 1.3rem;  /* Increased font size */
+}
+
+.blog-card .description .read-more a:after {
+    content: "\f061";
+    font-family: FontAwesome;
+    margin-left: -15px;
+    opacity: 0;
+    vertical-align: middle;
+    transition: margin 0.3s, opacity 0.3s;
+}
+
+.blog-card .description .read-more a:hover:after {
+    margin-left: 8px;
+    opacity: 1;
+}
+
+.blog-card p {
+    position: relative;
+    margin: 1.5rem 0 0;
+    font-size: 1.3rem;  /* Larger text for body */
+}
+
+.blog-card p:first-of-type {
+    margin-top: 1.5rem;
+}
+
+.blog-card p:first-of-type:before {
+    content: "";
+    position: absolute;
+    height: 5px;
+    background: #f39c12;  /* Gold yellow accent */
+    width: 60px;  /* Increased width */
+    top: -1rem;
+    border-radius: 3px;
+}
+
+.blog-card:hover .details {
+    left: 0%;
+}
+
+/* Media Queries */
+@media (min-width: 640px) {
+    .blog-card {
+        flex-direction: row;
+        max-width: 1200px;  /* Increased max-width for larger screens */
+    }
+
+    .blog-card .meta {
+        flex-basis: 50%;  /* More space for the image */
+        height: auto;
+    }
+
+    .blog-card .description {
+        flex-basis: 50%;
+    }
+
+    .blog-card .description:before {
+        transform: skewX(-5deg);  /* More pronounced skew effect */
+        content: "";
+        background: #fff;
+        width: 50px;  /* Increased width */
+        position: absolute;
+        left: -20px;
+        top: 0;
+        bottom: 0;
+        z-index: -1;
+    }
+
+    .blog-card.alt {
+        flex-direction: row-reverse;
+    }
+
+    .blog-card.alt .description:before {
+        left: inherit;
+        right: -20px;
+        transform: skew(5deg);
+    }
+
+    .blog-card.alt .details {
+        padding-left: 40px;
+    }
+}

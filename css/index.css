@@ -11,6 +11,7 @@ body {
     color: #333333; /* Darker text for readability */
 }
 
+
 .fixed-nav-bar {
     position: fixed;
     top: 0;
@@ -82,6 +83,7 @@ body {
     right: -8px;
     height: 100%;
     width: 8px;
+    color: #384047;
     transition: 0.25s ease;
     background: linear-gradient(to left, #ffc40c 50%, #ffffff 50%); /* Light yellow gradient */
     background-size: 200% 100%;
@@ -89,6 +91,7 @@ body {
 }
 
 .drop-down-item:hover::before {
+    color: #384047;
     background-position: right;
 }
 

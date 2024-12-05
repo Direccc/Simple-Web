@@ -1,17 +1,34 @@
+/* Ensure the body takes full height */
+html, body {
+    height: 100%;
+    margin: 0;  /* Remove default margin */
+}
+
+/* Flex container to push footer to the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Full viewport height */
+}
+
+/* Main content area takes up all available space */
+.main-content {
+    flex: 1;  /* Push footer to the bottom */
+}
+
 /* General footer styling */
 .footer {
     background-color: #333;  /* Dark background for footer */
     color: white;  /* Light text color */
     padding: 40px 0;  /* Increased padding for more space */
     position: relative;  /* Allow for normal flow */
-    bottom: 0;
     width: 100%;
-    margin-top: auto;
     text-align: center;
     font-size: 18px;  /* Increased font size for better readability */
+    margin-top: 0px;  /* Remove any margin at the top */
 }
 
-.footer .container {
+.footer .Fcontainer {
     max-width: 1200px;  /* Constrain width for larger screens */
     margin: 0 auto;  /* Center align container */
     padding: 0 30px;  /* Increased padding for better spacing */
@@ -21,6 +38,7 @@
     font-size: 36px;  /* Larger font size for brand name */
     font-weight: bold;
     margin-bottom: 20px;  /* More space below brand name */
+    color: white;  /* Ensure brand name is white */
 }
 
 .footer .social-icons {
