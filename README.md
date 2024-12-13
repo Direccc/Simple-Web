@@ -21,7 +21,7 @@ This repository hosts the code for my simple website, which implements **Create*
 To set up this project locally, follow these steps:  
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/Direccc/<repository-name>.git  
+   git clone https://github.com/Direccc/Simple-Web.git  
    ```  
 2. Set up your web server and configure it to point to the repository directory.  
 3. Import the database schema from the `db.sql` file (if included) into your MySQL database.  
